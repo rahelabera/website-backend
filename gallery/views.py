@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Slide
+from .serializers import SlideSerializer
 
-# Create your views here.
+class SlideListView(generics.ListAPIView):
+    queryset = Slide.objects.all()
+    serializer_class = SlideSerializer

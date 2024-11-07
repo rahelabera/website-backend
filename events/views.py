@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Month, Event
+from .serializers import MonthSerializer, EventSerializer
 
-# Create your views here.
+class MonthViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Month.objects.all()
+    serializer_class = MonthSerializer
+
+class EventViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer

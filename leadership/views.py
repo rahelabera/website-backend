@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Committee
+from .serializers import CommitteeSerializer
 
-# Create your views here.
+class CommitteeViewSet(viewsets.ModelViewSet):
+    queryset = Committee.objects.all()
+    serializer_class = CommitteeSerializer
